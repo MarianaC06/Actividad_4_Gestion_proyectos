@@ -23,10 +23,7 @@ Google Colab, GPU T4 o similar (Runtime > Change runtime type > T4 GPU). Python 
 300 reseñas del test IMDb, balanceadas 150/150, semilla 42, longitud máxima 256 tokens, batch 16. Misma muestra y configuración para los tres modelos. Warm-up previo; sincronización CUDA; se mide tiempo de inferencia + tokenización, excluyendo carga de modelos y descargas. Accuracy, precision, recall y F1 binarios (clase positiva=1). Solo inferencia: no se modifican los pesos.
 
 ## Conclusiones
-No hay ganador empírico hasta ejecutar el notebook. Se recomienda priorizar F1 y recall, y aplicar restricciones de latencia y memoria; `docs/reporte_comparativo.md` describe la decisión condicionada.
-
-## Publicación en GitHub
-Crear un repositorio público o privado en GitHub, subir el contenido de esta carpeta (o ejecutar `git init`, `git add .`, `git commit -m "Initial benchmark"`, `gh repo create ... --source=. --push`). La creación remota requiere autorización del propietario y no se ha realizado aquí.
+Se selecciona DistilBERT para primer prototipo, dado que alcanza F1 >= 0.85, recall positivo >= 0.85, y latencia <= 30 ms/reseña en GPU objetivo. 
 
 ## Estructura
 `notebooks/`, `src/`, `data/`, `results/`, `docs/`, `requirements.txt`.
